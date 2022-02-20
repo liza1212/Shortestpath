@@ -1,0 +1,47 @@
+body{
+    background-color:orangered;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 85px;
+    align-content: center;
+    background-color: yellow;
+
+}
+
+.startbox{
+    background-color: white;
+    font-size: 30px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.destbox{
+    background-color: white;
+    font-size: 30px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.calculate{
+    font-size: 30px;
+    border-radius: 5px;;
+}
+
+.getNodeBox,.getEdgeBox{
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 63px;
+    width: 150px;
+    border-style:solid;
+    border-width: 3px;
+}
+
+.nodeinput,.edgeinput{
+    width: 141px;
+}
