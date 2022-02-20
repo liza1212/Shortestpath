@@ -90,7 +90,7 @@ class Dijkstra{
             //let curr_min_weight=node_at_pq.edge_weight;
             this.graph.get_edge_of_certain_node(min_node).forEach(chimeki=> //chimeki has weight and value
                 {
-                    let temp=chimeki.Weight+this.distance[min_node];
+                    let temp=parseInt(chimeki.Weight)+parseInt(this.distance[min_node]);
 
                     if(temp<this.distance[chimeki.Value])
                     {   
