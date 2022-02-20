@@ -1,13 +1,18 @@
 class Node{
-    constructor(x, y, val, color) {
+    constructor(x, y, val) {
         this.x = x;
         this.y = y;
         this.val = val;
-        this.color = color;
     }
+    
+    setColor(color){
+        this.color= color;
+    }
+
     getX() {
         return this.x
     }
+
     getY() {
         return this.y
     }

@@ -104,7 +104,7 @@ function draw(){
     else{
         if (nodeValue != null) {
             console.log('Node drawn')
-            nodes.push(new Node(getNode.position().x, getNode.position().y, nodeValue, '#28fc03'))
+            nodes.push(new Node(getNode.position().x, getNode.position().y, nodeValue))
             startsel.option(nodes[nodes.length - 1].getValue());
             destsel.option(nodes[nodes.length - 1].getValue())
         }
@@ -113,10 +113,20 @@ function draw(){
     
 
     for (var node of nodes) {
-        node.display()
+        
         if(setSrc){
             src.outline();
         }
+        if(node.getValue()== startsel.value()){
+            node.setColor("pink")
+        }
+        else if(node.getValue() == destsel.value()){
+            node.setColor("red")
+        }
+        else{
+            node.setColor("green")
+        }
+        node.display()
     }
 
     if (edges.length != 0) {
@@ -206,11 +216,18 @@ function handleEdge(node){
         redraw()
     }
     else{
-        dest = node;
+        if(node != src){
+            dest = node;
         getEdge.position((src.getX()+dest.getX())*0.5,(src.getY()+dest.getY())*0.5)
         getEdge.show()
         setEdge.mouseReleased(setEdgeValue)
         delEdge.mouseReleased(removeEdge)
+        }
+        else{
+            alert("Select next node")
+            setSrc = false
+            redraw()
+        }
     }
 }
 
@@ -226,6 +243,7 @@ function create(){
     }
     if(!isNodePressed){
         setSrc = false
+        redraw()
         getNode.position(mouseX,mouseY)
         getNode.show()
         setNode.mouseReleased(addNode)
@@ -244,5 +262,5 @@ function shortestpath()
     let Dkstra=new Dijkstra(data, startNode, endNode);
     Dkstra.shortest_Path_Finder();
     console.log(Dkstra);
-
+    redraw()
 }
