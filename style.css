@@ -1,47 +1,61 @@
 body{
-    background-color:orangered;
+    background-color:#1e443d;
 }
 .grid{
     display: grid;
     grid-template-columns: auto auto auto;
     height: 85px;
     align-content: center;
-    background-color: yellow;
-
+    background-color: #82b6aa;
 }
 
 .startbox{
-    background-color: white;
+    background-color: #d7e7d7;
     font-size: 30px;
     text-align: center;
-    border-style: solid;
+    border-style: groove;
     border-width: 2px;
     border-radius: 5px;
 }
 
 .destbox{
-    background-color: white;
+    background-color: #d7e7d7;
     font-size: 30px;
     text-align: center;
-    border-style: solid;
+    border-style:groove;
     border-width: 2px;
     border-radius: 5px;
 }
 
 .calculate{
+    background-color: #d7e7d7;
     font-size: 30px;
-    border-radius: 5px;;
+    text-align: center;
+    border-style:groove;
+    border-width: 2px;
+    border-radius: 5px;
 }
 
 .getNodeBox,.getEdgeBox{
-    display: grid;
-    grid-template-columns: auto auto;
+    background-color: #e3dfd4;
     height: 63px;
     width: 150px;
-    border-style:solid;
+    border-style:dashed;
     border-width: 3px;
 }
 
 .nodeinput,.edgeinput{
+    background-color: white;
     width: 141px;
 }
+
+.result{
+    background-color: #e2d9b9;
+    text-align: center;
+    font-size:xx-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 200px;
+    width: 500px;
+    border-style: dashed;
+}
+

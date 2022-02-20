@@ -33,6 +33,11 @@ function setup(){
     destsel.attribute('class','destsel')
     dest.child(destsel)
 
+
+    res = createDiv("Result")
+    res.attribute('class', 'result')
+    res.position(700,400)
+    res.hide();
     //calculate button 
     calcbutton= createButton("Calculate")
     calcbutton.attribute('class','calculate')
@@ -104,7 +109,7 @@ function draw(){
     else{
         if (nodeValue != null) {
             console.log('Node drawn')
-            nodes.push(new Node(getNode.position().x, getNode.position().y, nodeValue, '#28fc03'))
+            nodes.push(new Node(getNode.position().x, getNode.position().y, nodeValue, '#d7e7d7'))
             startsel.option(nodes[nodes.length - 1].getValue());
             destsel.option(nodes[nodes.length - 1].getValue())
         }
@@ -244,5 +249,7 @@ function shortestpath()
     let Dkstra=new Dijkstra(data, startNode, endNode);
     Dkstra.shortest_Path_Finder();
     console.log(Dkstra);
-
+    let msg=Dkstra.get_message_shortest_path();
+    res.html(msg);
+    res.show();
 }

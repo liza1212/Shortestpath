@@ -118,6 +118,17 @@ class Dijkstra{
     {
         return this.actual_path;
     }
+    get_message_shortest_path()
+    {
+        let msg=" ";
+        this.actual_path.forEach(v=>
+        {
+            msg=msg+" ->"+v.Node;
+        })
+        msg="The shortest path is: "+ msg;
+        msg=msg+"    Shortest Distance: "+this.s_dist_edge_weight.toString();    
+        return msg;
+    }
 }
 
 //let fruit=new Dijkstra(pear, 1, 4);
