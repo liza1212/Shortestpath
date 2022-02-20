@@ -11,7 +11,7 @@ let makeEdgeB = false;
 
 
 function setup(){
-    data = new graph()
+    data = new graphh()
     canvas = createCanvas(window.innerWidth,window.innerHeight-100)
     canvas.position(0,99);
     canvas.mouseReleased(create)
