@@ -37,6 +37,7 @@ function setup(){
     calcbutton= createButton("Calculate")
     calcbutton.attribute('class','calculate')
     grid.child(calcbutton)
+    calcbutton.mousePressed(shortestpath);
 
     
 
@@ -44,6 +45,8 @@ function setup(){
     getNode = createDiv()
     getNode.attribute('class','getNodeBox')
     //getNode.position(500,500)
+
+    //from here:
     getNodePrompt = createDiv('Enter node value:')
     getNode.child(getNodePrompt)
 
@@ -59,8 +62,8 @@ function setup(){
     delNode= createButton("Cancel")
     delNode.attribute('class','setDelB')
     getNode.child(delNode)
-    
     getNode.hide()
+    // for the pop-up to enter the value of node up to here
 
     getEdge = createDiv()
     getEdge.attribute('class','getEdgeBox')
@@ -82,6 +85,7 @@ function setup(){
     getEdge.child(delEdge)
 
     getEdge.hide();
+    //pop-up to get the value of the edge weight
     noLoop()
 }
 
@@ -230,5 +234,15 @@ function create(){
     else{
         isNodePressed = false;
     }
+
+}
+
+function shortestpath()
+{
+    startNode=startsel.value();
+    endNode=destsel.value();
+    let Dkstra=new Dijkstra(data, startNode, endNode);
+    Dkstra.shortest_Path_Finder();
+    console.log(Dkstra);
 
 }

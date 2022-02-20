@@ -20,7 +20,7 @@ class graphh{
     {
         let node_to_add=new Object();
         node_to_add["Value"]=dest;
-        node_to_add["Weight"]=val;
+        node_to_add["Weight"]=parseInt(val);
         this.list_of_node_and_edges.get(src).push(node_to_add);
         console.log('Edge is added')
         console.log(`${src}=>${dest}`);
