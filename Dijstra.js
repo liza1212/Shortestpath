@@ -58,6 +58,7 @@ PriorityQueue.prototype.Element = class {
 class Dijkstra{
     constructor(graph,source, destination)
     {
+        // this.shortestpathvalue=Infinity
         this.graph=graph;
         this.s_dist_edge_weight=0;
         this.source=source;
@@ -94,10 +95,10 @@ class Dijkstra{
 
                     if(temp<this.distance[chimeki.Value])
                     {   
-                        shortestpathvalue=chimeki.Value;
+                        //this.shortestpathvalue=chimeki.Value;
                         this.rel_shortest_dist_and_prev[chimeki.Value]=min_node;  
                         this.distance[chimeki.Value]=temp;
-                        this.s_dist_edge_weight=this.distance[chimeki.Value];
+                        //this.s_dist_edge_weight=this.distance[chimeki.Value];
                         this.pq.enqueue(chimeki.Value,this.distance[chimeki.Value]);
                     }
                 });     //prev:source
@@ -111,24 +112,31 @@ class Dijkstra{
         this.actual_path.push({"Node":this.source,"Weight":this.distance[this.source]})
         this.actual_path.reverse();
     }
-    get_shortest_distance()
-    {
-        return this.distance[shortestpathvalue];
-    }
+    // get_shortest_distance()
+    // {
+    //     return this.distance[shortestpathvalue];
+    // }
     get_shortest_path()
     {
         return this.actual_path;
     }
     get_message_shortest_path()
     {
+        
         let msg=" ";
-        this.actual_path.forEach(v=>
+        if(!isFinite(parseInt(this.distance[this.destination])))
         {
-            msg=msg+" ->"+v.Node;
-        })
-        msg="The shortest path is: "+ msg;
-        // msg=msg+" <br> Shortest Distance: "+this.s_dist_edge_weight.toString();    
-        msg=msg+" <br> Shortest Distance: "+this.distance[shortestpathvalue];    
+            msg="This destination cannot be reached from the source!!";
+        }
+        else{
+            this.actual_path.forEach(v=>
+                {
+                    msg=msg+" ->"+v.Node;
+                })
+                msg="The shortest path is: "+ msg;
+                // msg=msg+" <br> Shortest Distance: "+this.s_dist_edge_weight.toString();    
+                msg=msg+"<br> Shortest Distance:" +this.distance[this.destination].toString(); 
+        }
         return msg;
     }
 }
