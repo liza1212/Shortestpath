@@ -33,6 +33,13 @@ function setup(){
     destsel.attribute('class','destsel')
     dest.child(destsel)
 
+
+    res = createDiv("Result")
+    res.attribute('class', 'result')
+    //res.position(700,400)
+    res.hide();
+
+    
     //calculate button 
     calcbutton= createButton("Calculate")
     calcbutton.attribute('class','calculate')
@@ -93,7 +100,7 @@ function setup(){
 
 function draw(){
 
-    background(255);
+    background('lightblue');
 
     if (toBeEdged) {
         console.log('Edge drawn')
@@ -117,7 +124,10 @@ function draw(){
         if(setSrc){
             src.outline();
         }
-        if(node.getValue()== startsel.value()){
+        if(node.getValue()== startsel.value() && node.getValue() == destsel.value()){
+            node.setColor("crimson")
+        }
+        else if(node.getValue()== startsel.value()){
             node.setColor("pink")
         }
         else if(node.getValue() == destsel.value()){
@@ -191,7 +201,7 @@ function removeEdge(){
 
 function setEdgeValue(){
     
-    if(edgeValue!= null){
+    if(edgeValue!= null && edgeValue>=0){
         toBeEdged = true
         srcSet = false
         makeEdgeB= false;
@@ -204,7 +214,7 @@ function setEdgeValue(){
     console.log(data)
     }
     else{
-        console.log("Enter edge value")
+        alert("Enter positive edge value")
     }
 
 }
@@ -261,6 +271,9 @@ function shortestpath()
     endNode=destsel.value();
     let Dkstra=new Dijkstra(data, startNode, endNode);
     Dkstra.shortest_Path_Finder();
-    console.log(Dkstra);
+    console.log(Dkstra)
+    let msg=Dkstra.get_message_shortest_path();
+    res.html(msg);
+    res.show();
     redraw()
 }
