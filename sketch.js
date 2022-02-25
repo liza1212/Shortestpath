@@ -267,13 +267,16 @@ function create(){
 
 function shortestpath()
 {
+    //data=new graphh();
     startNode=startsel.value();
     endNode=destsel.value();
     let Dkstra=new Dijkstra(data, startNode, endNode);
+    
     Dkstra.shortest_Path_Finder();
     console.log(Dkstra)
     let msg=Dkstra.get_message_shortest_path();
     res.html(msg);
     res.show();
+    console.log(Dkstra);
     redraw()
 }
