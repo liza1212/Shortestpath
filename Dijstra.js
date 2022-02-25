@@ -1,5 +1,5 @@
 let graph, source, destination,tank, max_size, dest_value, edge_weight, relation_short_prev,pq, s_dist_edge_weight
-let distance, actual_path
+let distance, actual_path, shortestpathvalue
 class PriorityQueue{
     constructor(max_size)
     {
@@ -94,6 +94,7 @@ class Dijkstra{
 
                     if(temp<this.distance[chimeki.Value])
                     {   
+                        shortestpathvalue=chimeki.Value;
                         this.rel_shortest_dist_and_prev[chimeki.Value]=min_node;  
                         this.distance[chimeki.Value]=temp;
                         this.s_dist_edge_weight=this.distance[chimeki.Value];
@@ -112,7 +113,7 @@ class Dijkstra{
     }
     get_shortest_distance()
     {
-        return this.s_dist_edge_weight;
+        return this.distance[shortestpathvalue];
     }
     get_shortest_path()
     {
@@ -126,7 +127,8 @@ class Dijkstra{
             msg=msg+" ->"+v.Node;
         })
         msg="The shortest path is: "+ msg;
-        msg=msg+" <br> Shortest Distance: "+this.s_dist_edge_weight.toString();    
+        // msg=msg+" <br> Shortest Distance: "+this.s_dist_edge_weight.toString();    
+        msg=msg+" <br> Shortest Distance: "+this.distance[shortestpathvalue];    
         return msg;
     }
 }

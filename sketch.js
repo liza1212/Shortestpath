@@ -275,5 +275,6 @@ function shortestpath()
     let msg=Dkstra.get_message_shortest_path();
     res.html(msg);
     res.show();
+    console.log(Dkstra);
     redraw()
 }
