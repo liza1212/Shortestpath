@@ -7,7 +7,7 @@ let setSrc = false, toBeEdged= false
 let src, dest
 let makeEdgeB = false
 let modeDijkstra = false 
-let dEnd,dStart
+let dEnd= null,dStart=null
 let dEdges=[]
 
 
@@ -156,14 +156,13 @@ function draw(){
                 return (edge.getSource().getValue() == dStart && edge.getDest().getValue() == dEnd)
             }))
         }
-        // for (var edge of dEdges) {
-        //     edge.outline()
-        // }
-    }
-
-    for (var edge of dEdges) {
+        for (var edge of dEdges) {
             edge.outline()
         }
+        console.log(dEdges)
+    }
+
+
 
 }
 
@@ -286,9 +285,7 @@ function create(){
 
 function shortestpath()
 {
-    let dEdges=[]
-    // let dStart = null
-    // let dEnd = null
+    
     //data=new graphh();
     startNode=startsel.value();
     endNode=destsel.value();
@@ -296,24 +293,28 @@ function shortestpath()
     
     Dkstra.shortest_Path_Finder();
     console.log(Dkstra)
+
+    shortestpatharray = Dkstra.get_shortest_path()
     shortestpath_array_size=Dkstra.get_shortest_path().length -1
+    
+    
     dStart = startsel.value()
     
-    if (Dkstra.get_shortest_path()[shortestpath_array_size]["Weight"] !== Infinity) {
+    if (shortestpatharray[shortestpath_array_size]['Weight'] !== Infinity) {
         modeDijkstra = true
         let count=1
         while(count<=shortestpath_array_size){
-            dEnd = Dkstra.get_shortest_path()[count]["Node"]
+            dEnd = shortestpatharray[count]['Node']
             redraw()
             if (dEnd && dEnd !== destsel.value())
-            dStart = dEnd
+                dStart = dEnd
             count++;
-            dEnd = Dkstra.get_shortest_path()[count]
+            //dEnd = Dkstra.get_shortest_path()[count]["Node"]
             console.log("WHY")
-            console.log(dEdges)
         }
-}
-
+        modeDijkstra = false
+    }
+    dEdges = []
     let msg=Dkstra.get_message_shortest_path();
     res.html(msg);
     res.show();
