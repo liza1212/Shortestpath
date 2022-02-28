@@ -299,8 +299,8 @@ function shortestpath()
     
     
     dStart = startsel.value()
-    
-    if (shortestpatharray[shortestpath_array_size]['Weight'] !== Infinity) {
+    redraw()
+    if (shortestpatharray[shortestpath_array_size]['Weight'] !== Infinity ) {
         modeDijkstra = true
         let count=1
         while(count<=shortestpath_array_size){
@@ -315,6 +315,7 @@ function shortestpath()
         modeDijkstra = false
     }
     dEdges = []
+    //redraw()
     let msg=Dkstra.get_message_shortest_path();
     res.html(msg);
     res.show();
