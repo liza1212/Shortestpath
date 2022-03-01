@@ -126,7 +126,7 @@ class Dijkstra{
         let msg=" ";
         if(!isFinite(parseInt(this.distance[this.destination])))
         {
-            msg="This destination cannot be reached from the source!!";
+            msg="This destination cannot be reached from the source!!!";
         }
         else{
             this.actual_path.forEach(v=>
