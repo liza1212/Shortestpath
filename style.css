@@ -63,3 +63,19 @@ body{
     border-style: dashed;
 }
 
+.messagePrompt{
+    height:75px;
+    width:600px;
+    background-color:cornsilk;
+    border-style: dashed;
+}
+
+.enterNodePrompt,.enterEdgePrompt{
+    height:75px;
+    width:600px;
+    font-size:xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
