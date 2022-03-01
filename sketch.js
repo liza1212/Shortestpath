@@ -49,7 +49,21 @@ function setup(){
     grid.child(calcbutton)
     calcbutton.mousePressed(shortestpath);
 
-    
+
+    //message prompt
+    messagePrompt = createDiv()
+    messagePrompt.attribute('class','messagePrompt')
+    messagePrompt.position(0,100);
+
+    //insert node prompt
+    enterNodePrompt = createDiv("Click anywhere to form a NODE")
+    enterNodePrompt.attribute('class','enterNodePrompt')
+    messagePrompt.child(enterNodePrompt)
+
+    enterEdgePrompt = createDiv("Click any two NODES to form EDGE")
+    enterEdgePrompt.attribute('class','enterEdgePrompt')
+    enterEdgePrompt.hide()
+    messagePrompt.child(enterEdgePrompt)
 
     //input node box with input and two button
     getNode = createDiv()
@@ -121,7 +135,7 @@ function draw(){
     }
 
     
-
+    //node display
     for (var node of nodes) {
         
         if(setSrc){
@@ -142,6 +156,8 @@ function draw(){
         node.display()
     }
 
+
+    //edge display
     if (edges.length != 0) {
         for (var edge of edges) {
             console.log(edge.getSource().getX(), edge.getSource().getY(), edge.getDest().getX(), edge.getDest().getY())
@@ -181,6 +197,8 @@ function addEdgeInput(){
 
 function addNode(){
     let nodePresent= false;
+    enterNodePrompt.hide()
+    enterEdgePrompt.show()
     if (nodeValue != null) {
         
         for(node of data.list_of_Vertices()){
@@ -218,7 +236,8 @@ function removeEdge(){
 }
 
 function setEdgeValue(){
-    
+    enterEdgePrompt.hide()
+    messagePrompt.hide()
     if(edgeValue!= null && edgeValue>=0){
         toBeEdged = true
         srcSet = false
@@ -266,7 +285,6 @@ function create(){
             console.log(node.getX(),node.getY())
             handleEdge(node)
             break
-            
         }
     }
     if(!isNodePressed){
