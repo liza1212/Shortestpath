@@ -78,7 +78,7 @@ class Dijkstra{
             });
         this.distance[source]=0;
         
-        this.pq=new PriorityQueue(this.nodes.length*this.nodes.length);
+        this.pq=new PriorityQueue(this.nodes.length*this.nodes.length); //maximum size of priority queue
 
         this.pq.enqueue(source,0);  //so first ma visit this node, that is the shortest distance.
     }           //pq = next_det , cost_weigth    ()
