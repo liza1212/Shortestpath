@@ -45,7 +45,7 @@ class PriorityQueue{
     {
         if(this.isEmpty())
             console.log("Queue Underflow");
-        return this.tank.pop();
+        return this.tank.shift();
     }
 }
 PriorityQueue.prototype.Element = class {

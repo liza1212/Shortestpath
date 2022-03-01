@@ -68,7 +68,7 @@ body {
     height:75px;
     width:600px;
     background-color:cornsilk;
-    border-style: dashed;
+    border-style: solid;
 }
 
 .enterNodePrompt,.enterEdgePrompt{
@@ -80,5 +80,4 @@ body {
     align-items: center;;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-  border-style: dashed;
 }

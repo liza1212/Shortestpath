@@ -142,13 +142,13 @@ function draw(){
             src.outline();
         }
         if(node.getValue()== startsel.value() && node.getValue() == destsel.value()){
-            node.setColor("#84C2A")
+            node.setColor("#e0115f")
         }
         else if(node.getValue()== startsel.value()){
-            node.setColor("#45415E")
+            node.setColor("white")
         }
         else if(node.getValue() == destsel.value()){
-            node.setColor("#91B3BC")
+            node.setColor("#e71837")
         }
         else{
             node.setColor("#B19490")
@@ -197,10 +197,10 @@ function addEdgeInput(){
 
 function addNode(){
     let nodePresent= false;
-    enterNodePrompt.hide()
-    enterEdgePrompt.show()
+    
     if (nodeValue != null) {
-        
+        enterNodePrompt.hide()
+        enterEdgePrompt.show()
         for(node of data.list_of_Vertices()){
             if(nodeValue == node){
 

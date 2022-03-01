@@ -53,15 +53,15 @@ class Edge {
     }
 
     outline(){
-        strokeWeight(6)
-        stroke("brown");
+        strokeWeight(4)
+        stroke("#ffcc33");
         console.log("Angle : ", this.theta)
         line(parseFloat(this.src.getX()) + 25 * Math.cos(this.theta), parseFloat(this.src.getY()) + 25* Math.sin(this.theta), parseFloat(this.dest.getX()) - 25 * Math.cos(this.theta), parseFloat(this.dest.getY()) - 25 * Math.sin(this.theta))
         console.log("line size:", parseFloat(this.src.getX()) + 25 * Math.cos(this.theta), parseFloat(this.src.getY()) + 25 * Math.sin(this.theta), parseFloat(this.dest.getX()) - 25 * Math.cos(this.theta), parseFloat(this.dest.getY()) - 25 * Math.sin(this.theta))
         line(this.midX,this.midY,this.xtop,this.ytop)
         line(this.midX,this.midY,this.xbottom,this.ybottom)
         textSize(32)
-        fill(0, 102, 153);
+        fill("#ffcc33");
         strokeWeight(0)
         text(this.weight, this.midX - 20, this.midY - 20)  
     }
