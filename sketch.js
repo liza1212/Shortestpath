@@ -117,7 +117,7 @@ function setup(){
 
 function draw(){
 
-    background('lightblue');
+    background('#ACBBC6');
 
     if (toBeEdged) {
         console.log('Edge drawn')
@@ -142,16 +142,16 @@ function draw(){
             src.outline();
         }
         if(node.getValue()== startsel.value() && node.getValue() == destsel.value()){
-            node.setColor("crimson")
+            node.setColor("#84C2A")
         }
         else if(node.getValue()== startsel.value()){
-            node.setColor("pink")
+            node.setColor("#45415E")
         }
         else if(node.getValue() == destsel.value()){
-            node.setColor("red")
+            node.setColor("#91B3BC")
         }
         else{
-            node.setColor("green")
+            node.setColor("#B19490")
         }
         node.display()
     }
